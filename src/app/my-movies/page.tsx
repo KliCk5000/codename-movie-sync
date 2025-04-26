@@ -7,7 +7,7 @@ import MyMovieList from "../components/MyMovieList";
 
 export default function MyMoviesPage() {
   const [searchResults, setSearchResults] = useState([]);
-  const [myMovies, setMyMovies] = useState([]);
+  const [myMovies, setMyMovies] = useState<{ id: number; title: string; poster_path?: string; release_date?: string; reaction: string }[]>([]);
 
   const handleSearch = async (query: string) => {
     const apiToken = process.env.NEXT_PUBLIC_TMDB_API_TOKEN;
@@ -32,7 +32,7 @@ export default function MyMoviesPage() {
     setSearchResults([]);
   };
 
-  const addMovie = (movie: any) => {
+  const addMovie = (movie: { id: number; title: string; poster_path?: string; release_date?: string }) => {
     const alreadyAdded = myMovies.some((m) => m.id === movie.id);
     if (!alreadyAdded) {
       setMyMovies((prev) => [...prev, { ...movie, reaction: 'excited' }]);

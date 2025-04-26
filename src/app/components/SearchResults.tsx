@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import MovieCard from './MovieCard';
 
 interface SearchResultsProps {
@@ -9,7 +8,7 @@ interface SearchResultsProps {
     poster_path?: string;
     release_date?: string;
   }>;
-  onAdd: (movie: any) => void;
+  onAdd: (movie: { id: number; title: string; poster_path?: string; release_date?: string }) => void;
   onClear: () => void;
 }
 

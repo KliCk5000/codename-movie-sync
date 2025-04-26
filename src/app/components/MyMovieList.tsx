@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-export default function MyMovieList({ movies }: { movies: any[] }) {
+export default function MyMovieList({ movies }: { movies: { id: number; title: string; poster_path?: string; release_date?: string }[] }) {
   if (!movies.length) return null;
 
   return (

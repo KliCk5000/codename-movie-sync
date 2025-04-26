@@ -9,7 +9,7 @@ interface MovieCardProps {
     poster_path?: string;
     release_date?: string;
   };
-  onAdd: (movie: any) => void;
+  onAdd: (movie: { id: number; title: string; poster_path?: string; release_date?: string }) => void;
 }
 
 export default function MovieCard({ movie, onAdd }: MovieCardProps) {
