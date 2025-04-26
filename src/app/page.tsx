@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white p-4 flex flex-col">
+    <main className="p-4 flex flex-col">
       <div className="mb-2 text-center mx-auto flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold mt-10 mb-4 text-center">MovieSync</h1>
         <p className="text-lg max-w-80 mb-10">
