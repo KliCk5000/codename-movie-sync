@@ -8,16 +8,25 @@ interface SearchResultsProps {
     poster_path?: string;
     release_date?: string;
   }>;
-  onAdd: (movie: { id: number; title: string; poster_path?: string; release_date?: string }) => void;
+  onAdd: (movie: {
+    id: number;
+    title: string;
+    poster_path?: string;
+    release_date?: string;
+  }) => void;
   onClear: () => void;
 }
 
-export default function SearchResults({ results, onAdd, onClear }: SearchResultsProps) {
+export default function SearchResults({
+  results,
+  onAdd,
+  onClear,
+}: SearchResultsProps) {
   if (results.length === 0) return null;
 
   return (
     <div className="mt-4">
-      <div className="flex justify-between items-center mb-4">
+      <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold">Search Results</h2>
         <button
           onClick={onClear}
@@ -26,7 +35,7 @@ export default function SearchResults({ results, onAdd, onClear }: SearchResults
           Clear results
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {results.map((movie) => (
           <MovieCard key={movie.id} movie={movie} onAdd={onAdd} />
         ))}

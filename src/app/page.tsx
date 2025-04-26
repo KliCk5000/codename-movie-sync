@@ -1,29 +1,30 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <main className="p-4 flex flex-col">
-      <div className="mb-2 text-center mx-auto flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold mt-10 mb-4 text-center">MovieSync</h1>
-        <p className="text-lg max-w-80 mb-10">
-          Welcome! This is a personal project to track and share movie watchlists with friends.
+    <main className="flex flex-col p-4">
+      <div className="mx-auto mb-2 flex flex-col items-center justify-center text-center">
+        <h1 className="mt-10 mb-4 text-center text-3xl font-bold">MovieSync</h1>
+        <p className="mb-10 max-w-80 text-lg">
+          Welcome! This is a personal project to track and share movie
+          watchlists with friends.
         </p>
       </div>
       <div className="flex flex-col items-center justify-center">
-        <Image 
-          src="/Logo1.png" 
-          alt="MovieSync Logo" 
-          width={423} 
-          height={320} 
-          className="w-auto h-auto max-w-[400px] mb-10"
+        <Image
+          src="/Logo1.png"
+          alt="MovieSync Logo"
+          width={423}
+          height={320}
+          className="mb-10 h-auto w-auto max-w-[400px]"
         />
         <Link href="/login">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 mb-10 rounded-md transition-colors duration-200 font-medium cursor-pointer">
+          <button className="mb-10 cursor-pointer rounded-md bg-blue-500 px-6 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-600">
             Get Started
           </button>
         </Link>
-        <p className="text-sm text-gray-600 dark:text-gray-400 text-center max-w-2xl mx-auto">
+        <p className="mx-auto max-w-2xl text-center text-sm text-gray-600 dark:text-gray-400">
           Built with Next.js, Tailwind CSS, and TypeScript.
         </p>
       </div>

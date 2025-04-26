@@ -6,7 +6,7 @@ const meta: Meta<typeof SearchBar> = {
   component: SearchBar,
   tags: ['autodocs'],
   argTypes: {
-    onSearch: { action: 'searched' }
+    onSearch: { action: 'searched' },
   },
 };
 
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof SearchBar>;
 
 export const Default: Story = {
   args: {
-    onSearch: (query: string) => console.log('Searching for:', query)
-  }
-}; 
+    onSearch: (query: string) => console.log('Searching for:', query),
+  },
+};

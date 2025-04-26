@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 
-export default function SearchBar({ onSearch }: { onSearch: (q: string) => void }) {
+export default function SearchBar({
+  onSearch,
+}: {
+  onSearch: (q: string) => void;
+}) {
   const [query, setQuery] = useState('');
 
   return (
@@ -17,9 +21,12 @@ export default function SearchBar({ onSearch }: { onSearch: (q: string) => void 
             onSearch(query);
           }
         }}
-        className="border p-2 rounded mr-2"
+        className="mr-2 rounded border p-2"
       />
-      <button onClick={() => onSearch(query)} className="bg-blue-600 text-white px-4 py-2 rounded">
+      <button
+        onClick={() => onSearch(query)}
+        className="rounded bg-blue-600 px-4 py-2 text-white"
+      >
         Search
       </button>
     </div>

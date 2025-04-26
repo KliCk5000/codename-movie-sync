@@ -6,7 +6,7 @@ const meta: Meta<typeof MovieCard> = {
   component: MovieCard,
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   decorators: [
     (Story) => (
@@ -16,8 +16,8 @@ const meta: Meta<typeof MovieCard> = {
     ),
   ],
   argTypes: {
-    onAdd: { action: 'movie added' }
-  }
+    onAdd: { action: 'movie added' },
+  },
 };
 
 export default meta;
@@ -30,10 +30,10 @@ export const WithPoster: Story = {
       id: 1,
       title: 'Inception',
       poster_path: '/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
-      release_date: '2010-07-16'
+      release_date: '2010-07-16',
     },
-    onAdd: (movie) => console.log('Added movie:', movie.title)
-  }
+    onAdd: (movie) => console.log('Added movie:', movie.title),
+  },
 };
 
 // Example of a movie without poster
@@ -42,10 +42,10 @@ export const WithoutPoster: Story = {
     movie: {
       id: 2,
       title: 'Classic Movie',
-      release_date: '1999-12-31'
+      release_date: '1999-12-31',
     },
-    onAdd: (movie) => console.log('Added movie:', movie.title)
-  }
+    onAdd: (movie) => console.log('Added movie:', movie.title),
+  },
 };
 
 // Example of a movie with a very long title
@@ -55,8 +55,8 @@ export const LongTitle: Story = {
       id: 3,
       title: 'The Incredibly Long Movie Title That Just Keeps Going and Going',
       poster_path: '/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
-      release_date: '2023-01-01'
+      release_date: '2023-01-01',
     },
-    onAdd: (movie) => console.log('Added movie:', movie.title)
-  }
-}; 
+    onAdd: (movie) => console.log('Added movie:', movie.title),
+  },
+};

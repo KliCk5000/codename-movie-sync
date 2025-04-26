@@ -1,9 +1,9 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 import '../src/app/globals.css';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -13,11 +13,11 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className="p-4 max-w-4xl mx-auto">
+      <div className="mx-auto max-w-4xl p-4">
         <Story />
       </div>
     ),
   ],
 };
 
-export default preview; 
+export default preview;
