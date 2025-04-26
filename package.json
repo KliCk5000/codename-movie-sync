@@ -16,14 +16,15 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@storybook/addon-essentials": "^8.0.0",
     "@storybook/addon-interactions": "^8.0.0",
     "@storybook/addon-links": "^8.0.0",
     "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/experimental-addon-test": "^8.6.12",
     "@storybook/nextjs": "^8.0.0",
     "@storybook/react": "^8.0.0",
     "@storybook/test": "^8.0.0",
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -33,6 +34,7 @@
     "eslint-plugin-storybook": "^0.12.0",
     "playwright": "^1.52.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.1.2"
   }
 }
