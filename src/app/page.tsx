@@ -12,7 +12,7 @@ export default function HomePage() {
       </div>
       <div className="flex flex-col items-center justify-center">
         <Image 
-          src="/logo1.png" 
+          src="/Logo1.png" 
           alt="MovieSync Logo" 
           width={423} 
           height={320} 
