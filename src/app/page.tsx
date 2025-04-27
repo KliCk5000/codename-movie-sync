@@ -1,10 +1,29 @@
-import Image from 'next/image';
-import Link from 'next/link';
+'use client';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function HomePage() {
+  const router = useRouter();
+  const [query, setQuery] = useState<string>('');
+
   return (
     <main className="flex flex-col p-4">
-      <div className="mx-auto mb-2 flex flex-col items-center justify-center text-center">
+      <h1 className="text-3xl font-semibold">Which movie should we watch?</h1>
+      <input
+        className="mt-2 mb-2 w-64 rounded border border-neutral-700 p-2 dark:bg-neutral-200"
+        placeholder="Search for a movie..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && router.push('/results')}
+      />
+      <button
+        onClick={() => router.push('/results')}
+        className="rounded bg-amber-500 px-4 py-2 font-medium hover:bg-amber-600"
+      >
+        Search
+      </button>
+
+      {/* <div className="mx-auto mb-2 flex flex-col items-center justify-center text-center">
         <h1 className="mt-10 mb-4 text-center text-3xl font-bold">MovieSync</h1>
         <p className="mb-10 max-w-80 text-lg">
           Welcome! This is a personal project to track and share movie
@@ -24,10 +43,7 @@ export default function HomePage() {
             Get Started
           </button>
         </Link>
-        <p className="mx-auto max-w-2xl text-center text-sm text-gray-600 dark:text-gray-400">
-          Built with Next.js, Tailwind CSS, and TypeScript.
-        </p>
-      </div>
+      </div> */}
     </main>
   );
 }

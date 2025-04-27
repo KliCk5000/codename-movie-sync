@@ -1,23 +1,29 @@
 @import "tailwindcss";
 
 :root {
+  /* Light Mode Defaults */
   --background: #ededed;
   --foreground: oklch(13% .028 261.692);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-}
-
+/* If the user has a preference for dark mode, set the dark mode colors */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: oklch(13% .028 261.692);
     --foreground: #ededed;
   }
+}
+
+/* Next‑Themes will toggle these on <html> */
+html.light {
+  --background: #ededed;
+  --foreground: oklch(13% .028 261.692);
+}
+html.dark {
+  --background: oklch(13% .028 261.692);
+  --foreground: #ededed;
 }
 
 body {

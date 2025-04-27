@@ -23,3 +23,7 @@ Made the default font Geist all over the application
 In the global layout I now have a header that has the name of the app and the logo on every page.
 
 For Nextjs Image tags, you must use a height and width, but you can control the CSS to alter the size
+
+## Day 2
+
+Installed Prettier and learned how to debug it.
