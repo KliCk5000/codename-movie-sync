@@ -27,3 +27,13 @@ For Nextjs Image tags, you must use a height and width, but you can control the 
 ## Day 2
 
 Installed Prettier and learned how to debug it.
+
+4 Create the landing page with a fake search
+
+5 Mock some data
+
+6 Show the results page
+
+7 Custom 404 (nice touch)
+
+8 Quality-of-life tweaks

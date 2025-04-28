@@ -10,7 +10,7 @@ export default function HomePage() {
     <main className="flex flex-col p-4">
       <h1 className="text-3xl font-semibold">Which movie should we watch?</h1>
       <input
-        className="mt-2 mb-2 w-64 rounded border border-neutral-700 p-2 dark:bg-neutral-200"
+        className="mt-2 mb-2 w-64 rounded border border-neutral-700 p-2 dark:bg-neutral-200 dark:text-neutral-900"
         placeholder="Search for a movie..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}

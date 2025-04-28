@@ -8,7 +8,7 @@ export default function DarkModeToggle() {
   const [mounted, setMounted] = useState(false);
 
   const buttonClasses =
-    'text-1xl ml-2 min-h-[30px] min-w-[30px] rounded ' +
+    'text-1xl ml-2 min-h-[40px] min-w-[40px] rounded ' +
     'bg-gray-200 p-2 text-gray-800 ' +
     'dark:bg-gray-700 dark:text-gray-200';
 
