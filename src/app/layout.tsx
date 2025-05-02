@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
-import DarkModeToggle from '@/app/components/DarkModeToggle';
-import Image from 'next/image';
+
+import Header from './components/Header';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -32,19 +32,7 @@ export default function RootLayout({
     >
       <body className="">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header className="p-4 font-bold">
-            <span className="inline-flex items-center">
-              <Image
-                src="/Logo1-sm.png"
-                width={270}
-                height={195}
-                alt="MovieSync Logo"
-                className="mr-2 h-auto max-w-[50px]"
-              />
-              <div className="text-3xl">MovieSync</div>
-              <DarkModeToggle />
-            </span>
-          </header>
+          <Header />
 
           <main className="container mx-auto p-4">{children}</main>
           <footer className="p-4 text-center text-sm text-gray-600 dark:text-gray-400">
