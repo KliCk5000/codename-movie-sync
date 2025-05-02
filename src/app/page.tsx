@@ -14,10 +14,13 @@ export default function HomePage() {
         placeholder="Search for a movie..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && router.push('/results')}
+        onKeyDown={(e) =>
+          e.key === 'Enter' &&
+          router.push(`/results?title=${encodeURIComponent(query)}`)
+        }
       />
       <button
-        onClick={() => router.push('/results')}
+        onClick={() => router.push(`/results?title=${encodeURIComponent(query)}`)}
         className="rounded bg-amber-500 px-4 py-2 font-medium hover:bg-amber-600"
       >
         Search

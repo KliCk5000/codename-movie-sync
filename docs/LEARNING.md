@@ -41,3 +41,16 @@ Installed Prettier and learned how to debug it.
 ### Day 3
 
 Added homepage redirect to header (and pulled it out to its own component)
+
+TMDB integration - Created tiny TMDB healper
+
+### Day 4
+
+Expose a server-only route handler
+
+Updated the landing page navigation
+
+Refactor /results to fetch real data
+
+
+
