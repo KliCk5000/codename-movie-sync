@@ -1,6 +1,6 @@
-const BASEURL = 'https://api.themoviedb.org/3';
+const BASEURL = process.env.TMDB_API_BASE_URL;
 
-export interface TMDBSearchMovie {
+export interface TMDB_SearchedMovie {
   id: number;
   title: string;
   release_date: string;
@@ -8,8 +8,10 @@ export interface TMDBSearchMovie {
   poster_path: string | null;
 }
 
-export async function searchMovies(title: string): Promise<TMDBSearchMovie[]> {
-  const url = new URL('/search/movie', BASEURL);
+export async function searchMovies(
+  title: string,
+): Promise<TMDB_SearchedMovie[]> {
+  const url = new URL('search/movie', BASEURL);
   url.searchParams.set('query', title);
   url.searchParams.set('include_adult', 'false');
   url.searchParams.set('language', 'en-US');
@@ -17,13 +19,15 @@ export async function searchMovies(title: string): Promise<TMDBSearchMovie[]> {
 
   const res = await fetch(url.toString(), {
     headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}`,
+      Authorization: `Bearer ${process.env.TMDB_API_TOKEN}`,
       Accept: 'application/json',
     },
     next: { revalidate: 60 }, // Cache for 60 seconds
   });
 
+  console.log(url.toString(), BASEURL);
+
   if (!res.ok) throw new Error('TMDB request failed');
   const json = await res.json();
-  return json.results as TMDBSearchMovie[];
+  return json.results as TMDB_SearchedMovie[];
 }

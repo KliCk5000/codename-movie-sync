@@ -1,6 +1,15 @@
+export const dynamic = 'force-dynamic';
+
 import { searchMovies } from '@/lib/tmdb';
 import Image from 'next/image';
 import Link from 'next/link';
+
+interface Movie {
+  id: number;
+  poster_path: string | null;
+  title: string;
+  release_date: string;
+}
 
 export default async function Results({
   searchParams,
@@ -15,7 +24,21 @@ export default async function Results({
     );
   }
 
-  const movies = await searchMovies(title);
+  let movies: Movie[] = [];
+  try {
+    movies = await searchMovies(title);
+    if (!Array.isArray(movies)) movies = [];
+  } catch (e: unknown) {
+    let message = 'Unknown error';
+    if (e instanceof Error) {
+      message = e.message;
+    }
+    return (
+      <p className="text-red-500">
+        Error fetching results. Please try again later. ${message}
+      </p>
+    );
+  }
 
   if (!movies.length) {
     return <p>No matches for &quot;{title}&quot;.</p>;
@@ -27,25 +50,24 @@ export default async function Results({
         {movies.length} results for &quot;{title}&quot;
       </h2>
       <ul className="space-y-2">
-        {movies.map((m) => (
+        {movies.map(({ id, poster_path, title: movieTitle, release_date }) => (
           <li
-            key={m.id}
+            key={id}
             className="rounded border border-neutral-700 p-3 hover:bg-neutral-800"
           >
-            {m.poster_path && (
+            {poster_path && (
               <Image
-                src={`https://image.tmdb.org/t/p/w500${m.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                 width={300}
                 height={450}
-                alt={m.title}
+                alt={movieTitle}
                 className="mb-2 h-auto w-full rounded"
               />
             )}
-            <h3 className="">{m.title}</h3>
-            <span className="text-sm text-neutral-400">({m.release_date})</span>
-
+            <h3>{movieTitle}</h3>
+            <span className="text-sm text-neutral-400">({release_date})</span>
             <Link
-              href={`https://www.themoviedb.org/movie/${m.id}`}
+              href={`https://www.themoviedb.org/movie/${id}`}
               target="_blank"
               className="mt-2 inline-block text-amber-400 underline"
             >
