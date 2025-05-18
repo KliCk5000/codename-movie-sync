@@ -55,17 +55,19 @@ export default async function Results({
             key={id}
             className="rounded border border-neutral-700 p-3 hover:bg-neutral-800"
           >
-            {poster_path && (
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                width={300}
-                height={450}
-                alt={movieTitle}
-                className="mb-2 h-auto w-full rounded"
-              />
-            )}
-            <h3>{movieTitle}</h3>
-            <span className="text-sm text-neutral-400">({release_date})</span>
+            <Link href={`/movie/${id}`} className="">
+              {poster_path && (
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  width={300}
+                  height={450}
+                  alt={movieTitle}
+                  className="mb-2 h-auto w-2xs rounded"
+                />
+              )}
+              <h3>{movieTitle}</h3>
+              <span className="text-sm text-neutral-400">({release_date})</span>
+            </Link>
             <Link
               href={`https://www.themoviedb.org/movie/${id}`}
               target="_blank"
