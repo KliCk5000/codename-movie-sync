@@ -14,11 +14,11 @@ interface Movie {
 export default async function Results({
   searchParams,
 }: {
-  searchParams: { title?: string };
+  searchParams: Promise<{ title?: string }>;
 }) {
-  const title = searchParams.title ?? '';
+  const { title = '' } = await searchParams;
 
-  if (!title) {
+  if (!title.trim()) {
     return (
       <p className="text-lg">Please enter a title on the home page first.</p>
     );
