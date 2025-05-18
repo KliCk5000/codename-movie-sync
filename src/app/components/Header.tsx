@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import DarkModeToggle from '@/app/components/DarkModeToggle';
+import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 
 export default function Header() {
   const router = useRouter();
@@ -26,6 +27,11 @@ export default function Header() {
         </div>
         <DarkModeToggle />
       </span>
+      <div className="">
+        <SignInButton />
+        <SignUpButton />
+        <UserButton />
+      </div>
     </header>
   );
 }
