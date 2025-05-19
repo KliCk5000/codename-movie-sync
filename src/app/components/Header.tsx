@@ -3,10 +3,19 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import DarkModeToggle from '@/app/components/DarkModeToggle';
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+  UserButton,
+  useUser,
+} from '@clerk/nextjs';
 
 export default function Header() {
   const router = useRouter();
+  const { user } = useUser();
 
   return (
     <header className="p-4 font-bold">
@@ -26,12 +35,16 @@ export default function Header() {
           MovieSync
         </div>
         <DarkModeToggle />
+        <SignedOut>
+          <SignInButton /> or
+          <SignUpButton />
+        </SignedOut>
+        <SignedIn>
+          {user?.username}
+          <UserButton />
+          <SignOutButton />
+        </SignedIn>
       </span>
-      <div className="">
-        <SignInButton />
-        <SignUpButton />
-        <UserButton />
-      </div>
     </header>
   );
 }
