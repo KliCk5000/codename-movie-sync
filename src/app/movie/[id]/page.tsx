@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { getMovieDetails, TMDB_MovieDetails } from '@/lib/tmdb';
 import PosterWithFallback from '@/app/components/PosterWithFallback';
+import SaveMovieButton from '@/app/components/SaveMovieButton';
 
 export default async function Page({
   params,
@@ -30,6 +31,7 @@ export default async function Page({
             }
             alt={movie.title}
           />
+          <SaveMovieButton movie={movie} />
         </div>
         <div id="info" className="">
           <h1 className="mb-1 text-3xl font-bold">{movie.title}</h1>
