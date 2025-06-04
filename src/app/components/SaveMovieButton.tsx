@@ -15,7 +15,7 @@ export default function SaveMovieButton({
   const handleSaveMovie = async () => {
     if (!user) return; // for extra safety
     console.log('Saving movie for user: ', user, movie);
-    // TODI: call API/server action here
+    // TODO: call API/server action here
     try {
       const res = await fetch('/api/save-movie', {
         method: 'POST',
