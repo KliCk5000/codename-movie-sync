@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import supabase from '@/lib/supabase';
 
-export async function GET(req: Request) {
+export async function GET() {
   // Get current Clerk userId (using Clerk's API)
   const { userId } = await auth();
 
