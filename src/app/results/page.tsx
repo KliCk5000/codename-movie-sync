@@ -35,7 +35,7 @@ export default async function Results({
     }
     return (
       <p className="text-red-500">
-        Error fetching results. Please try again later. ${message}
+        {`Error fetching results. Please try again later. ${message}`}
       </p>
     );
   }
