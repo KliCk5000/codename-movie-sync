@@ -3,22 +3,14 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import DarkModeToggle from '@/app/components/DarkModeToggle';
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  UserButton,
-  useUser,
-} from '@clerk/nextjs';
+import { SignedIn, SignOutButton, UserButton, useUser } from '@clerk/nextjs';
 
 export default function Header() {
   const router = useRouter();
   const { user } = useUser();
 
   return (
-    <header className="p-4 font-bold">
+    <header className="p-4 font-bold flex justify-center">
       <span className="inline-flex cursor-pointer items-center">
         <Image
           src="/Logo1-sm.png"
@@ -30,19 +22,17 @@ export default function Header() {
         />
         <div
           className="cursor-pointer text-3xl"
-          onClick={() => router.push('/')}
+          onClick={() => router.push('/home')}
         >
           MovieSync
         </div>
         <DarkModeToggle />
-        <SignedOut>
-          <SignInButton /> or
-          <SignUpButton />
-        </SignedOut>
         <SignedIn>
-          {user?.username}
-          <UserButton />
-          <SignOutButton />
+          <div className="ml-4 inline-flex items-center gap-2 p-1">
+            <UserButton />
+            <div className="mr-4">{user?.username}</div>
+            <SignOutButton />
+          </div>
         </SignedIn>
       </span>
     </header>

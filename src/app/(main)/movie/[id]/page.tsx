@@ -18,7 +18,7 @@ export default async function Page({
 
   return (
     <div className="mx-auto max-w-3xl p-4">
-      <Link href="/" className="mb-4 inline-block text-amber-400 underline">
+      <Link href="/home" className="mb-4 inline-block text-amber-400 underline">
         &larr; Back to search
       </Link>
       <div className="flex flex-col gap-6 md:flex-row">

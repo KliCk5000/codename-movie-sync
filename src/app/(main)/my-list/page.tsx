@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import SearchResults from '../components/SearchResults';
-import MyMovieList from '../components/MyMovieList';
+import SearchBar from '@/app/components/SearchBar';
+import SearchResults from '@/app/components/SearchResults';
+import MyMovieList from '@/app/components/MyMovieList';
 
 export default function MyMoviesPage() {
   const [searchResults, setSearchResults] = useState([]);
